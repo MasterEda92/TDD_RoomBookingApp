@@ -26,4 +26,7 @@
   <ItemGroup>
     <None Remove="Shouldly" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\RoomBookingApp.Core\RoomBookingApp.Core.csproj" />
+  </ItemGroup>
 </Project>
