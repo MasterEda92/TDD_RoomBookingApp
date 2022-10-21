@@ -22,12 +22,15 @@ namespace RoomBookingApp.Core
             RoomBookingResult result = processor.BookRoom(request);
 
             // Assert
-            // Assert.NotNull (result); // Standard Assert
+
+            // Standard System Assert
+            // Assert.NotNull (result);
             // Assert.Equal(request.FullName, result.FullName);
             // Assert.Equal(request.Email, result.Email);
             // Assert.Equal(request.Date, result.Date);
 
-            result.ShouldNotBeNull(); // Assert mit Shouldly
+            // Shouldly
+            result.ShouldNotBeNull();
             result.FullName.ShouldBe(request.FullName);
             result.Email.ShouldBe(request.Email);
             result.Date.ShouldBe(request.Date);
