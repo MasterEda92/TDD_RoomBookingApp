@@ -20,14 +20,16 @@ namespace RoomBookingApp.Core.Processors
                 throw new ArgumentNullException(nameof(bookingRequest));
             }
 
-            _service.Save(new RoomBooking
-            {
-                FullName = bookingRequest.FullName,
-                Email = bookingRequest.Email,
-                Date = bookingRequest.Date
-            });
+            _service.Save(CreateRoomBookingObject<RoomBooking>(bookingRequest));
 
-            return new RoomBookingResult
+            return CreateRoomBookingObject<RoomBookingResult>(bookingRequest);
+        }
+
+        private TRoomBooking CreateRoomBookingObject<TRoomBooking> (RoomBookingRequest bookingRequest)
+            where TRoomBooking : RoomBookingBase
+            , new()
+        {
+            return new TRoomBooking
             {
                 FullName = bookingRequest.FullName,
                 Email = bookingRequest.Email,
