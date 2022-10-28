@@ -5,6 +5,13 @@ namespace RoomBookingApp.Core
 {
     public class RoomBookingRequestProcessorTest
     {
+        private RoomBookingRequestProcessor _processor;
+
+        public RoomBookingRequestProcessorTest()
+        {
+            _processor = new RoomBookingRequestProcessor();
+        }
+
         [Fact]
         public void ShouldReturnRoomBookingResponseWithRequestValues ()
         {
@@ -16,10 +23,8 @@ namespace RoomBookingApp.Core
                 Date = new DateTime(2022, 10, 18)
             };
 
-            var processor = new RoomBookingRequestProcessor();
-
             // Act
-            RoomBookingResult result = processor.BookRoom(request);
+            RoomBookingResult result = _processor.BookRoom(request);
 
             // Assert
 
@@ -40,9 +45,7 @@ namespace RoomBookingApp.Core
         [Fact]
         public void Should_Throw_Exception_For_Null_Request ()
         {
-            var processor = new RoomBookingRequestProcessor();
-
-            var exception = Should.Throw<ArgumentNullException>(() => processor.BookRoom(null));
+            var exception = Should.Throw<ArgumentNullException>(() => _processor.BookRoom(null));
 
             exception.ParamName.ShouldBe("bookingRequest");
         }
