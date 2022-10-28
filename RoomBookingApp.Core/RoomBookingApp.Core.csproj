@@ -8,10 +8,14 @@
 
   <ItemGroup>
     <None Remove="Processors\" />
+    <None Remove="DataServices\" />
+    <None Remove="Domain\" />
     <None Remove="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Processors\" />
+    <Folder Include="DataServices\" />
+    <Folder Include="Domain\" />
     <Folder Include="Models\" />
   </ItemGroup>
 </Project>
